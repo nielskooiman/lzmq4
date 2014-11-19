@@ -10,6 +10,7 @@ Alpha version, use at your own risk!
 Missing functionality:
 - Advanced messages: zmq_msg_* (except zmq_msg_recv and zmq_msg_send)
 - Security: zmq_z85_*
+
 (probably more..)
 
 
