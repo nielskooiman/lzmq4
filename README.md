@@ -1,7 +1,7 @@
 
 ## LZMQ4
 
-Lua C bindings to ØMQ (ZeroMQ) 4.0
+(Unofficial) Lua C bindings to ØMQ (ZeroMQ) 4.0
 
 ### Status
 
@@ -34,18 +34,17 @@ zmq.ctx_shutdown(context)
 
 I'm using Code::Blocks for now, the generated commands are:
 
-```bash
+```
 
 gcc -Wall -fPIC -O3  -c src/lzmq-context.c -o obj/Release/src/lzmq-context.o
 gcc -Wall -fPIC -O3  -c src/lzmq-message.c -o obj/Release/src/lzmq-message.o
 gcc -Wall -fPIC -O3  -c src/lzmq-socket.c -o obj/Release/src/lzmq-socket.o
 gcc -Wall -fPIC -O3  -c src/lzmq.c -o obj/Release/src/lzmq.o
 g++ -shared  obj/Release/src/lzmq-context.o obj/Release/src/lzmq-message.o obj/Release/src/lzmq-socket.o obj/Release/src/lzmq.o  -o lzmq4.so -s  -llua -lzmq
-```
 Output file is lzmq4.so with size 29.47 KB
 Process terminated with status 0 (0 minute(s), 0 second(s))
 0 error(s), 0 warning(s) (0 minute(s), 0 second(s))
-
+```
 
 ### Documentation
 
