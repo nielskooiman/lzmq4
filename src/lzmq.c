@@ -263,7 +263,7 @@ void register_contants(lua_State *L, const char* name, const lua_IntConst consta
     {
         if (constants[i].name != NULL)
         {
-            lua_pushnumber(L, constants[i].val);
+            lua_pushinteger(L, constants[i].val);
             lua_setfield(L, -2, constants[i].name);
         }
         else

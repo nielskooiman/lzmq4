@@ -221,7 +221,7 @@ int Lmsg_recv_event(lua_State* L)
         int flags = lua_tointeger(L, 2);
 
         int res = 0;
-
+/*
         // ZMQ event
         zmq_event_t event;
 
@@ -241,13 +241,13 @@ int Lmsg_recv_event(lua_State* L)
 
         lua_newtable(L);
 
-        lua_pushnumber(L, event.event);
+        lua_pushinteger(L, event.event);
         lua_setfield(L, -2, "event");
-        lua_pushnumber(L, event.value);
+        lua_pushinteger(L, event.value);
         lua_setfield(L, -2, "value");
 
         res = zmq_msg_close (&msg);
-
+*/
         if (res != 0)
         {
             return return_zmq_error(L, res);

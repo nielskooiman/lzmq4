@@ -61,7 +61,7 @@ int return_zmq_error(lua_State* L, int errnumber)
         strerrorlen = strlen(strerror);
 
         lua_pushlstring(L, strerror, strerrorlen);
-        lua_pushnumber(L, errnumber);
+        lua_pushinteger(L, errnumber);
         return 4;
     }
     return 2;
@@ -76,7 +76,7 @@ int return_zmq_receive_error(lua_State* L)
     lua_pushnil(L);
     lua_pushlstring(L, strerror, strerrorlen);
 
-    lua_pushnumber(L, errnumber);
+    lua_pushinteger(L, errnumber);
     return 3;
 }
 
@@ -89,11 +89,11 @@ int Lzmq_version(lua_State* L)
 
     lua_newtable(L);
     //lua_settable(L, -2)
-    lua_pushnumber(L, major);
+    lua_pushinteger(L, major);
     lua_setfield(L, -2, "major");
-    lua_pushnumber(L, minor);
+    lua_pushinteger(L, minor);
     lua_setfield(L, -2, "minor");
-    lua_pushnumber(L, patch);
+    lua_pushinteger(L, patch);
     lua_setfield(L, -2, "patch");
 
     return 1;
@@ -103,7 +103,7 @@ int Lzmq_errno(lua_State* L)
 {
     //int zmq_errno (void);
     int errnumber = zmq_errno();
-    lua_pushnumber(L, errnumber);
+    lua_pushinteger(L, errnumber);
     return 1;
 }
 
@@ -218,7 +218,7 @@ int Lzmq_ctx_set(lua_State* L)
         {
             return return_zmq_error(L, res);
         }
-        lua_pushnumber(L, res);
+        lua_pushinteger(L, res);
         return 1;
     }
     else
@@ -253,7 +253,7 @@ int Lzmq_ctx_get(lua_State* L)
         {
             return return_zmq_error(L, res);
         }
-        lua_pushnumber(L, res);
+        lua_pushinteger(L, res);
         return 1;
     }
     else

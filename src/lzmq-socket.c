@@ -220,7 +220,7 @@ int Lzmq_getsockopt(lua_State* L)
             return return_error(L, "arg[3]: number expected");
         }
 
-        int buffer_size = luaL_optint(L, 4, 50);
+        int buffer_size = 50;// luaL_optint(L, 4, 50);
 
         void *skt = lua_touserdata(L, 1);
         int option = lua_tointeger(L, 2);
@@ -247,19 +247,19 @@ int Lzmq_getsockopt(lua_State* L)
             if (type == TYPE_INT && optvallen == sizeof(int))
             {
                 int v = *((int*)optval);
-                lua_pushnumber(L, v);
+                lua_pushinteger(L, v);
                 return 1;
             }
             else if (type == TYPE_INT64 && optvallen == sizeof(int64_t))
             {
                 int64_t v = *((int64_t*)optval);
-                lua_pushnumber(L, v);
+                lua_pushinteger(L, v);
                 return 1;
             }
             else if (type == TYPE_UINT64 && optvallen == sizeof(uint64_t))
             {
                 uint64_t v = *((uint64_t*)optval);
-                lua_pushnumber(L, v);
+                lua_pushinteger(L, v);
                 return 1;
             }
             else if (type == TYPE_BINARY)
