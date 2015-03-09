@@ -148,7 +148,7 @@ int Lzmq_ctx_term(lua_State* L)
         int res = zmq_ctx_term(ctx);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushboolean(L, 1);
         return 1;
@@ -173,7 +173,7 @@ int Lzmq_ctx_shutdown(lua_State* L)
 
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushboolean(L, 1);
         return 1;
@@ -216,7 +216,7 @@ int Lzmq_ctx_set(lua_State* L)
         int res = zmq_ctx_set(ctx, option, optval);
         if (res == -1)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushinteger(L, res);
         return 1;
@@ -251,7 +251,7 @@ int Lzmq_ctx_get(lua_State* L)
         int res = zmq_ctx_get(ctx, option);
         if (res == -1)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushinteger(L, res);
         return 1;

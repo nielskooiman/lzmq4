@@ -184,7 +184,7 @@ int Lzmq_setsockopt(lua_State* L)
         int res = zmq_setsockopt(skt, option, optval, optvallen);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushboolean(L, 1);
         return 1;
@@ -305,7 +305,7 @@ int Lzmq_bind(lua_State* L)
         int res = zmq_bind(skt, addr);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
 
         lua_pushboolean(L, 1);
@@ -340,7 +340,7 @@ int Lzmq_connect(lua_State* L)
         int res = zmq_connect(skt, addr);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
 
         lua_pushboolean(L, 1);
@@ -375,7 +375,7 @@ int Lzmq_unbind(lua_State* L)
         int res = zmq_unbind(skt, addr);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
 
         lua_pushboolean(L, 1);
@@ -410,7 +410,7 @@ int Lzmq_disconnect(lua_State* L)
         int res = zmq_disconnect(skt, addr);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
 
         lua_pushboolean(L, 1);
@@ -642,7 +642,7 @@ int Lzmq_proxy(lua_State* L)
         int res = zmq_proxy(skt_front, skt_back, skt_capture);
         if (res != 0)
         {
-            return return_zmq_error(L, res);
+            return return_zmq_receive_error(L);
         }
         lua_pushboolean(L, 1);
         return 1;

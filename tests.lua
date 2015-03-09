@@ -225,7 +225,7 @@ test('shutdown context', function() return zmq.ctx_shutdown(context) end, functi
 
 print(separator)
 end_time = os.time()
-elapsed_time = os.difftime(end_time-start_time)
+elapsed_time = os.difftime(end_time,start_time)
 print('time elapsed: ' .. elapsed_time .. 's')
 print('successfull tests: ' .. tests_success .. ' / ' .. test_count)
 print(separator)
